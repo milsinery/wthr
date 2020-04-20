@@ -1,0 +1,112 @@
+:root {
+  /* colors */
+  --color-accent: hsl(0, 100%, 50%);
+  --color-text: hsl(0, 0%, 100%);
+  --color-over: hsla(0, 0%, 0%, 0.2);
+  --color-bg: hsl(0, 0%, 10%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-accent: hsl(0, 100%, 50%);
+    --color-text: hsl(0, 0%, 80%);
+    --color-over: hsla(0, 0%, 0%, 0.5);
+    --color-bg: hsl(0, 0%, 0%);
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: "Montserrat", sans-serif, -apple-system, BlinkMacSystemFont;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 800;
+}
+
+h1 {
+  font-size: 10vmax;
+}
+
+h2 {
+  font-size: 6vmin;
+}
+
+h3{
+  font-size: 6vmin;
+}
+
+p {
+  font-size: 4vmin;
+}
+
+small {
+  font: 2vmax;
+}
+
+a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+button {
+
+}
+
+.effect-magic-in {
+  animation: 600ms ease-out slide-up, 600ms ease-out fade-in;
+}
+
+.effect-fade-in {
+  animation: 1000ms ease-out fade-in;
+}
+
+.effect-zoom-out {
+  animation: 2000ms ease-out fade-in, 15s ease-out zoom-out;
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(80px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoom-out {
+  from {
+    transform: scale(1.1);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
