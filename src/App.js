@@ -8,7 +8,7 @@ function App() {
 
   const [isDataFetched, setIsDataFetched] = useState(false);
   const [data, setData] = useState(null);
-  const [bg, setBg] = useState(defaultBackground);
+  const [bg, setBg] = useState();
 
   const getWeather = () => {
     fetch(
@@ -24,9 +24,6 @@ function App() {
       .then((data) => {
           setWeather(data);
           setIsWeatherFetched(true);
-          // console.log(data);
-        
-
       })
       .catch((error) => {
         console.log(error);
@@ -66,26 +63,27 @@ function App() {
   return (
     <div className="weather">
       <picture
-        className="weather__bg over-blur effect-zoom-out"
+        className={"weather__bg over-blur fade-in effect-zoom-out"}
         alt="Background image"
       >
         <div className="weather__over"></div>
-        <img src={bg} width="100%" heigth="100%" />
+        <img src={isDataFetched ? bg : defaultBackground} width="100%" heigth="100%" />
       </picture>
 
       <div className="weather__face">
         <div className="weather__info">
+        <div className="weather__city">
+            <p className="effect-fade-in">Санкт-Петербург</p>
+          </div>
           <div className="weather__temperature">
             <h1 className="effect-magic-in">{weather && weather.temp_c}℃</h1>
           </div>
 
           <div className="weather__description">
-            <h2 className="effect-magic-in">Отличное время</h2>
+            <h2 className="effect-magic-in">Пока третья волна не пошла — наслаждайся</h2>
           </div>
 
-          <div className="weather__city">
-            <p className="effect-fade-in">Санкт-Петербург</p>
-          </div>
+         
         </div>
 
         {data && (
